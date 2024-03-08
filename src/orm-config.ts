@@ -1,8 +1,15 @@
-import { DataSourceOptions } from "typeorm";
+import { DataSource, DataSourceOptions } from "typeorm";
 
-export const config: DataSourceOptions = {
+export const configProd: DataSourceOptions = {
   type: 'sqlite',
   database: '.db/sql',
+  synchronize: true,
+  entities: [__dirname + '/**/*.entity.{ts,js}'],
+};
+
+export const configTest: DataSourceOptions = {
+  type: 'sqlite',
+  database: '.dbTest/sql',
   synchronize: true,
   entities: [__dirname + '/**/*.entity.{ts,js}'],
 };
